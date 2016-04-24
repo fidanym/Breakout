@@ -23,6 +23,8 @@ namespace Breakout {
         public void Draw(Graphics g) {
             Brush brush = new SolidBrush(Color);
             g.FillRectangle(brush, Corner.X, Corner.Y, width, height);
+            Pen p = new Pen(Color.Black);
+            g.DrawRectangle(p, Corner.X, Corner.Y, width, height);
             brush.Dispose();
         }
     }

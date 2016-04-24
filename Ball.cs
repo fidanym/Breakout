@@ -36,9 +36,10 @@ namespace Breakout {
             brush.Dispose();
         }
 
-        public bool IsColiding(Ball ball) {
-            double d = (Center.X - ball.Center.X) * (Center.X - ball.Center.X) + (Center.Y - ball.Center.Y) * (Center.Y - ball.Center.Y);
-            return d <= (2 * RADIUS) * (2 * RADIUS);
+        public bool IsColiding(Block block) {
+            bool collisionX = Center.X + RADIUS >= block.Corner.X && block.Corner.X + 80 >= Center.X - RADIUS;
+            bool collisionY = Center.Y + RADIUS >= block.Corner.Y && block.Corner.Y + 20 >= Center.Y - RADIUS;
+            return collisionX && collisionY;
         }
 
         public void Move(int left, int top, int width, int height) {
@@ -51,6 +52,12 @@ namespace Breakout {
                 velocityY = -velocityY;
             }
             Center = new Point((int)(Center.X + velocityX), (int)(Center.Y + velocityY));
+        }
+
+        public void Reverse()
+        {
+           
+            velocityY = -velocityY;
         }
     }
 }

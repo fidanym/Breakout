@@ -11,8 +11,8 @@ namespace Breakout {
         public List<Block> Blocks { get; set; }
 
         public GameDoc() {
-            Point ballCenter = new Point(780, 300);
-            Ball = new Ball(ballCenter, Color.Bisque);
+            Point ballCenter = new Point(400,550);
+            Ball = new Ball(ballCenter, Color.Black);
             Blocks = new List<Block>();
         }
 
@@ -24,6 +24,34 @@ namespace Breakout {
                     Block block = new Block(p, color);
                     Blocks.Add(block);
                 }
+            }
+        }
+
+        public void CheckColisions()
+        {
+            for (int i = 0; i < Blocks.Count; i++)
+            {
+                if (Ball.IsColiding(Blocks[i]))
+                {
+                    Blocks[i].IsColided = true;
+                    Ball.Color = Color.Red;
+                    Ball.Reverse();
+                }
+            }
+
+            for (int i = 0; i < Blocks.Count; i++)
+            {
+                if (Blocks[i].IsColided)
+                    Blocks.RemoveAt(i);
+            }
+        }
+
+        public void Draw(Graphics g)
+        {
+            Ball.Draw(g);
+           foreach(Block b in Blocks)
+            {
+                b.Draw(g);
             }
         }
 

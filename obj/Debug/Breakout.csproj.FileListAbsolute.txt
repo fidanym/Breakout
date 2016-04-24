@@ -1,1 +1,13 @@
 c:\users\fidan\documents\visual studio 2015\Projects\Breakout\Breakout\bin\Debug\Breakout.exe.config
+C:\Users\Win8\Documents\Visual Studio 2015\Projects\Breakout\bin\Debug\Breakout.exe.config
+C:\Users\Win8\Documents\Visual Studio 2015\Projects\Breakout\bin\Debug\Breakout.exe
+C:\Users\Win8\Documents\Visual Studio 2015\Projects\Breakout\bin\Debug\Breakout.pdb
+C:\Users\Win8\Documents\Visual Studio 2015\Projects\Breakout\obj\Debug\Breakout.csprojResolveAssemblyReference.cache
+C:\Users\Win8\Documents\Visual Studio 2015\Projects\Breakout\obj\Debug\Breakout.Form1.resources
+C:\Users\Win8\Documents\Visual Studio 2015\Projects\Breakout\obj\Debug\Breakout.Properties.Resources.resources
+C:\Users\Win8\Documents\Visual Studio 2015\Projects\Breakout\obj\Debug\Breakout.csproj.GenerateResource.Cache
+C:\Users\Win8\Documents\Visual Studio 2015\Projects\Breakout\obj\Debug\Breakout.exe
+C:\Users\Win8\Documents\Visual Studio 2015\Projects\Breakout\obj\Debug\Breakout.pdb
+C:\Users\Win8\Desktop\Breakout\bin\Debug\Breakout.exe.config
+C:\Users\Win8\Desktop\Breakout\obj\Debug\Breakout.exe
+C:\Users\Win8\Desktop\Breakout\obj\Debug\Breakout.pdb
