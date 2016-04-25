@@ -16,6 +16,7 @@ namespace Breakout {
         private int topY;
         private int width;
         private int height;
+      
 
         public Form1() {
             InitializeComponent();
@@ -30,8 +31,7 @@ namespace Breakout {
             topY = 0;
             width = 780;
             height = 540;
-           
-            
+            DrawHearts();
         }
         private bool move { get; set; }
         void timer_Tick(object sender, EventArgs e)
@@ -44,6 +44,12 @@ namespace Breakout {
                 gameDoc.checkFloorColisions();
                 Invalidate(true);
             }
+        }
+
+        private void DrawHearts()
+        {
+            Image img = Image.FromFile("Heart.png");
+            
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)

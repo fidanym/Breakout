@@ -17,6 +17,7 @@ namespace Breakout {
         private float velocityX;
         private float velocityY;
 
+        public int Lives { get; set; }
         public bool IsColided { get; set; }
 
         public Ball (Point center, Color color) {
@@ -28,6 +29,7 @@ namespace Breakout {
             Angle = r.Next(180, 183);
             velocityX = (float)(Math.Cos(Angle) * Velocity);
             velocityY = (float)(Math.Sin(Angle) * Velocity);
+            Lives = 3;
         }
 
         public void Draw(Graphics g) {
@@ -64,6 +66,7 @@ namespace Breakout {
             if (nextY + RADIUS >= height + top)
             {
                 velocityY = -velocityY;
+                Lives--;
             }
             Center = new Point((int)(Center.X + velocityX), (int)(Center.Y + velocityY));
         }

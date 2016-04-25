@@ -17,3 +17,4 @@ C:\Users\Win8\Desktop\Breakout\obj\Debug\Breakout.csprojResolveAssemblyReference
 C:\Users\Win8\Desktop\Breakout\obj\Debug\Breakout.Form1.resources
 C:\Users\Win8\Desktop\Breakout\obj\Debug\Breakout.Properties.Resources.resources
 C:\Users\Win8\Desktop\Breakout\obj\Debug\Breakout.csproj.GenerateResource.Cache
+C:\Users\Win8\Desktop\Breakout\obj\Debug\Breakout.Start.resources

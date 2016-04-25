@@ -10,7 +10,7 @@ namespace Breakout {
         public Ball Ball { get; set; }
         public List<Block> Blocks { get; set; }
         public FloorBlock FBlock { get; set; }
-        public int Lives { get; set; }
+        int previouslives;
         
         public GameDoc() {
             Point ballCenter = new Point(400,500);
@@ -18,30 +18,20 @@ namespace Breakout {
             Point FloorPoint = new Point(400, 520);
             FBlock = new FloorBlock(FloorPoint, Color.Black);
             Blocks = new List<Block>();
-            Lives = 3;
         }
 
-        public void Miss()
+        public void CheckMiss()
         {
-            if(Lives==1)
+            if(Ball.Lives==0)
             {
                // GameOver();
             }else
             {
-                Lives--;
+                
                 
             }
         }
-        private void DrawHearts()
-        {
-            Image img = Image.FromFile("Heart.png");
-           // List<Image> imgs = new List<Image>();
-            for (int i = 0; i < Lives; i++)
-            {
-               //.statusStrip1.Items.Add(img);
-            }
-
-        }
+       
 
         public void AddBlocks() {
             Color color = Color.Blue;
