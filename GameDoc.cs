@@ -18,8 +18,8 @@ namespace Breakout {
 
         public void AddBlocks() {
             Color color = Color.Blue;
-            for(int i = 5; i <= 150; i += 25) {
-                for (int j = 5; j <= 720; j += 85) {
+            for(int i = 10; i <= 150; i += 35) {
+                for (int j = 10; j <= 750; j += 55) {
                     if (i % 2 == 0)
                     {
                         color = Color.Red;

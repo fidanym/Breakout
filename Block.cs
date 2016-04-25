@@ -9,8 +9,8 @@ namespace Breakout {
     public class Block {
         public Point Corner { get; set; }
         public Color Color { get; set; }
-        public static int width = 80;
-        public static int height = 20;
+        public static int width = 50;
+        public static int height = 30;
 
         public bool IsColided { get; set; }
 
