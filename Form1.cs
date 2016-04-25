@@ -31,17 +31,38 @@ namespace Breakout {
             width = 780;
             height = 570;
         }
-
+        private bool move { get; set; }
         void timer_Tick(object sender, EventArgs e)
         {
-            gameDoc.Ball.Move(leftX, topY, width, height);
-            gameDoc.CheckColisions();
-            Invalidate(true);
+
+            if (move)
+            {
+                gameDoc.Ball.Move(leftX, topY, width, height);
+                gameDoc.CheckColisions();
+                Invalidate(true);
+            }
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             gameDoc.Draw(e.Graphics);
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Space)
+            {
+                move = true;
+            }
+            else if(e.KeyCode== Keys.P)
+            {
+                move = false;
+            }
         }
     }
 }

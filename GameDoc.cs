@@ -18,8 +18,17 @@ namespace Breakout {
 
         public void AddBlocks() {
             Color color = Color.Blue;
-            for(int i = 0; i <= 60; i += 20) {
-                for(int j = 0; j <= 720; j += 80) {
+            for(int i = 5; i <= 150; i += 25) {
+                for (int j = 5; j <= 720; j += 85) {
+                    if (i % 2 == 0)
+                    {
+                        color = Color.Red;
+                    }
+                    else
+                    {
+                        color = Color.Blue;
+                    }
+
                     Point p = new Point(j, i);
                     Block block = new Block(p, color);
                     Blocks.Add(block);
@@ -34,7 +43,7 @@ namespace Breakout {
                 if (Ball.IsColiding(Blocks[i]))
                 {
                     Blocks[i].IsColided = true;
-                    Ball.Color = Color.Red;
+                   // Ball.Color = Color.Red;
                     Ball.Reverse();
                 }
             }
