@@ -10,7 +10,7 @@ namespace Breakout {
         public Ball Ball { get; set; }
         public List<Block> Blocks { get; set; }
         public FloorBlock FBlock { get; set; }
-        int previouslives;
+       
         
         public GameDoc() {
             Point ballCenter = new Point(400,500);

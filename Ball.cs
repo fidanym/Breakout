@@ -65,8 +65,15 @@ namespace Breakout {
             }
             if (nextY + RADIUS >= height + top)
             {
+                if(Lives>=0)
+                {
+                    Lives--;
+                }
+                
+                Point p = new Point(400, 500);
+                Center = p;
                 velocityY = -velocityY;
-                Lives--;
+                
             }
             Center = new Point((int)(Center.X + velocityX), (int)(Center.Y + velocityY));
         }
