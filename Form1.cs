@@ -29,7 +29,9 @@ namespace Breakout {
             leftX = 0;
             topY = 0;
             width = 780;
-            height = 570;
+            height = 540;
+           
+            
         }
         private bool move { get; set; }
         void timer_Tick(object sender, EventArgs e)
@@ -39,6 +41,7 @@ namespace Breakout {
             {
                 gameDoc.Ball.Move(leftX, topY, width, height);
                 gameDoc.CheckColisions();
+                gameDoc.checkFloorColisions();
                 Invalidate(true);
             }
         }
@@ -46,12 +49,15 @@ namespace Breakout {
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             gameDoc.Draw(e.Graphics);
+            
         }
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
 
         }
+
+       
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -62,6 +68,13 @@ namespace Breakout {
             else if(e.KeyCode== Keys.P)
             {
                 move = false;
+            }
+            if(e.KeyCode==Keys.Left)
+            {
+                gameDoc.FBlock.Move("left");
+            }else if(e.KeyCode==Keys.Right)
+            {
+                gameDoc.FBlock.Move("right");
             }
         }
     }

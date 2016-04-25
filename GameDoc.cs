@@ -9,11 +9,38 @@ namespace Breakout {
     class GameDoc {
         public Ball Ball { get; set; }
         public List<Block> Blocks { get; set; }
-
+        public FloorBlock FBlock { get; set; }
+        public int Lives { get; set; }
+        
         public GameDoc() {
-            Point ballCenter = new Point(400,550);
+            Point ballCenter = new Point(400,500);
             Ball = new Ball(ballCenter, Color.Black);
+            Point FloorPoint = new Point(400, 520);
+            FBlock = new FloorBlock(FloorPoint, Color.Black);
             Blocks = new List<Block>();
+            Lives = 3;
+        }
+
+        public void Miss()
+        {
+            if(Lives==1)
+            {
+               // GameOver();
+            }else
+            {
+                Lives--;
+                
+            }
+        }
+        private void DrawHearts()
+        {
+            Image img = Image.FromFile("Heart.png");
+           // List<Image> imgs = new List<Image>();
+            for (int i = 0; i < Lives; i++)
+            {
+               //.statusStrip1.Items.Add(img);
+            }
+
         }
 
         public void AddBlocks() {
@@ -55,6 +82,15 @@ namespace Breakout {
             }
         }
 
+        
+
+        public void checkFloorColisions()
+        {
+            if(Ball.IsColiding(FBlock))
+            {
+                Ball.Reverse();
+            }
+        }
         public void Draw(Graphics g)
         {
             Ball.Draw(g);
@@ -62,6 +98,7 @@ namespace Breakout {
             {
                 b.Draw(g);
             }
+            FBlock.Draw(g);
         }
 
     }

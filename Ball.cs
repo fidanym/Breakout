@@ -23,7 +23,7 @@ namespace Breakout {
             Center = center;
             Color = color;
             IsColided = false;
-            Velocity = 10;
+            Velocity = 8;
             Random r = new Random();
             Angle = r.Next(180, 183);
             velocityX = (float)(Math.Cos(Angle) * Velocity);
@@ -31,13 +31,23 @@ namespace Breakout {
         }
 
         public void Draw(Graphics g) {
-            Brush brush = new SolidBrush(Color);
-            g.FillEllipse(brush, Center.X - RADIUS, Center.Y - RADIUS, RADIUS * 2, RADIUS * 2);
-            brush.Dispose();
+           // Brush brush = new SolidBrush(Color);
+            Image newImage = Image.FromFile("Ball.png");
+
+            g.DrawImage(newImage, Center.X - RADIUS, Center.Y- RADIUS, RADIUS*2, RADIUS*2);
+           // g.FillEllipse(brush, Center.X - RADIUS, Center.Y - RADIUS, RADIUS * 2, RADIUS * 2);
+           // brush.Dispose();
         }
 
         public bool IsColiding(Block block) {
-            bool collisionX = Center.X + RADIUS >= block.Corner.X && block.Corner.X + 80 >= Center.X - RADIUS;
+            bool collisionX = Center.X + RADIUS >= block.Corner.X && block.Corner.X + 50 >= Center.X - RADIUS;
+            bool collisionY = Center.Y + RADIUS >= block.Corner.Y && block.Corner.Y + 30 >= Center.Y - RADIUS;
+            return collisionX && collisionY;
+        }
+
+        public bool IsColiding(FloorBlock block)
+        {
+            bool collisionX = Center.X + RADIUS >= block.Corner.X && block.Corner.X + 100 >= Center.X - RADIUS;
             bool collisionY = Center.Y + RADIUS >= block.Corner.Y && block.Corner.Y + 20 >= Center.Y - RADIUS;
             return collisionX && collisionY;
         }
@@ -48,11 +58,18 @@ namespace Breakout {
             if (nextX - RADIUS <= left || nextX + RADIUS >= width + left) {
                 velocityX = -velocityX;
             }
-            if (nextY - RADIUS <= top || nextY + RADIUS >= height + top) {
+            if (nextY - RADIUS <= top) {
+                velocityY = -velocityY;
+            }
+            if (nextY + RADIUS >= height + top)
+            {
                 velocityY = -velocityY;
             }
             Center = new Point((int)(Center.X + velocityX), (int)(Center.Y + velocityY));
         }
+
+
+
 
         public void Reverse()
         {
