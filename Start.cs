@@ -16,12 +16,13 @@ namespace Breakout
         {
             InitializeComponent();
             label1.BackColor = Color.Transparent;
-            
+            Image img = Image.FromFile("bgStart.png");
+            this.BackgroundImage = img;
         }
 
         private void btnNovaIgra_Click(object sender, EventArgs e)
         {
-          Form1  Formaa = new Form1();
+            Form1 Formaa = new Form1();
             Formaa.Show();
             this.Hide();
         }
@@ -29,6 +30,12 @@ namespace Breakout
         private void btnAbout_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Изработиле:\n Илија Лазороски\n Фидан Јованов\n Стефан Кржовски\n");
+        }
+
+        private void btnHighscore_Click(object sender, EventArgs e)
+        {
+            HighScores form = new HighScores();
+            form.Show();
         }
     }
 }

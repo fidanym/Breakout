@@ -18,6 +18,7 @@ namespace Breakout {
         private float velocityY;
 
         public int Lives { get; set; }
+       public bool CheckLife { get; set; }
         public bool IsColided { get; set; }
 
         public Ball (Point center, Color color) {
@@ -41,17 +42,69 @@ namespace Breakout {
            // brush.Dispose();
         }
 
-        public bool IsColiding(Block block) {
-            bool collisionX = Center.X + RADIUS >= block.Corner.X && block.Corner.X + 50 >= Center.X - RADIUS;
+        public void IsColiding(Block block) {
+            bool collisionX = Center.X + RADIUS >= block.Corner.X && Center.X - RADIUS <= block.Corner.X + 50;
             bool collisionY = Center.Y + RADIUS >= block.Corner.Y && block.Corner.Y + 30 >= Center.Y - RADIUS;
-            return collisionX && collisionY;
+
+            if (collisionX && collisionY)
+            {
+                float wy = 70 * (block.Corner.Y + 15 - Center.Y);
+                float hx = 50 * (block.Corner.X + 25 - Center.X);
+                if (wy > hx)
+                {
+                    if (wy > -hx)
+                    {
+                        /* top */
+                        velocityY = velocityY * -1;
+                        block.IsColided = true;
+                    }
+                    else
+                    {
+                        velocityX = velocityX * -1;
+                        block.IsColided = true;
+                        /* left */
+                    }
+                }
+                else
+                {
+                    if (wy > -hx)
+                    {
+                        velocityX = velocityX * -1;
+                        block.IsColided = true;
+                        /* right */
+                    }
+                    else
+                    {
+                        /* bottom */
+                        velocityY = velocityY * -1;
+                        block.IsColided = true;
+                    }
+
+                }
+            }
         }
 
-        public bool IsColiding(FloorBlock block)
+        public void IsColiding(FloorBlock block)
         {
             bool collisionX = Center.X + RADIUS >= block.Corner.X && block.Corner.X + 100 >= Center.X - RADIUS;
             bool collisionY = Center.Y + RADIUS >= block.Corner.Y && block.Corner.Y + 20 >= Center.Y - RADIUS;
-            return collisionX && collisionY;
+            if (collisionX && collisionY)
+            {
+                if (Center.X <= block.Corner.X + 25)
+                {
+                    velocityX = velocityX * -1;
+
+                }
+                if ((Center.X <= block.Corner.X + 100) && (Center.X >= block.Corner.X + 75))
+                {
+                    velocityX = velocityX *-1;
+                    velocityY = -velocityY;
+                }
+                else
+                {
+                    velocityY = -velocityY;
+                }
+            }
         }
 
         public void Move(int left, int top, int width, int height) {
@@ -65,15 +118,11 @@ namespace Breakout {
             }
             if (nextY + RADIUS >= height + top)
             {
-                if(Lives>=0)
-                {
-                    Lives--;
-                }
-                
+                velocityY = -velocityY;
+                Lives--;
+                CheckLife = true;
                 Point p = new Point(400, 500);
                 Center = p;
-                velocityY = -velocityY;
-                
             }
             Center = new Point((int)(Center.X + velocityX), (int)(Center.Y + velocityY));
         }

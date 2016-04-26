@@ -38,26 +38,25 @@ namespace Breakout
             int posX = Corner.X;
 
             Point p;
-            if (dir.Equals("left") && Corner.X >= 0)
+            if(dir.Equals("left") && Corner.X>=20)
             {
 
                 p = new Point(Corner.X - 55, Corner.Y);
                 Corner = p;
             }
-            else if (dir.Equals("right") && Corner.X <= 700)
+            else if(dir.Equals("right") && Corner.X <= 700)
             {
                 p = new Point(Corner.X + 55, Corner.Y);
                 Corner = p;
             }
-
+            
         }
-        public void Move(int possX)
+      public void Move(int possX)
         {
             Point p;
-            p = new Point(possX, Corner.Y);
+            p = new Point(possX-55, Corner.Y);
             Corner = p;
-        }
-
+        } 
 
 
     }

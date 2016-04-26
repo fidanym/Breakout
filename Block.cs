@@ -14,10 +14,18 @@ namespace Breakout {
 
         public bool IsColided { get; set; }
 
+        public int Value { get; set; }
         public Block(Point corner, Color color) {
             Corner = corner;
             Color = color;
             IsColided = false;
+            if(color==Color.Red)
+            {
+                Value = 5;
+            }else if(color==Color.Blue)
+            {
+                Value = 10;
+            }
         }
 
         public void Draw(Graphics g) {

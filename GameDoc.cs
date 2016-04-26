@@ -10,29 +10,19 @@ namespace Breakout {
         public Ball Ball { get; set; }
         public List<Block> Blocks { get; set; }
         public FloorBlock FBlock { get; set; }
-       
-        
+       // bool Remove { get; set; }
+       public int Score { get; set; }
+
         public GameDoc() {
             Point ballCenter = new Point(400,500);
             Ball = new Ball(ballCenter, Color.Black);
             Point FloorPoint = new Point(400, 520);
             FBlock = new FloorBlock(FloorPoint, Color.Black);
             Blocks = new List<Block>();
+            Score = 0;
         }
 
-        public void CheckMiss()
-        {
-            if(Ball.Lives==0)
-            {
-               // GameOver();
-            }else
-            {
-                
-                
-            }
-        }
-       
-
+    
         public void AddBlocks() {
             Color color = Color.Blue;
             for(int i = 10; i <= 150; i += 35) {
@@ -57,18 +47,21 @@ namespace Breakout {
         {
             for (int i = 0; i < Blocks.Count; i++)
             {
-                if (Ball.IsColiding(Blocks[i]))
+                Ball.IsColiding(Blocks[i]);
+                if (Blocks[i].IsColided)
                 {
-                    Blocks[i].IsColided = true;
-                   // Ball.Color = Color.Red;
-                    Ball.Reverse();
+                 
+                    Score += Blocks[i].Value;
                 }
             }
 
             for (int i = 0; i < Blocks.Count; i++)
             {
                 if (Blocks[i].IsColided)
+                {
                     Blocks.RemoveAt(i);
+                   
+                }
             }
         }
 
@@ -76,10 +69,8 @@ namespace Breakout {
 
         public void checkFloorColisions()
         {
-            if(Ball.IsColiding(FBlock))
-            {
-                Ball.Reverse();
-            }
+            Ball.IsColiding(FBlock);
+            
         }
         public void Draw(Graphics g)
         {
@@ -92,4 +83,5 @@ namespace Breakout {
         }
 
     }
+ 
 }
