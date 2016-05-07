@@ -15,31 +15,33 @@ namespace Breakout {
         Dictionary<int, string> boja = new Dictionary<int, string>();
 
         public GameDoc() {
-            boja.Add(1, "MediumPurple");
-            boja.Add(2, "MidnightBlue");
+            boja.Add(5, "MediumPurple");
+            boja.Add(4, "MidnightBlue");
             boja.Add(3, "LimeGreen");
-            boja.Add(4, "Gold");
-            boja.Add(5, "Firebrick");
+            boja.Add(2, "Gold");
+            boja.Add(1, "Firebrick");
             Point ballCenter = new Point(400,500);
             Ball = new Ball(ballCenter, Color.Black);
             Point FloorPoint = new Point(400, 520);
             FBlock = new FloorBlock(FloorPoint, Color.Black);
             Blocks = new List<Block>();
             Score = 0;
+            
         }
 
     
         public void AddBlocks() {
-            int k = 1;
+            int k = 5;
             for(int i = 10; i <= 150; i += 35) {
                 for (int j = 10; j <= 750; j += 55) {
                   
 
                     Point p = new Point(j, i);
                     Block block = new Block(p, Color.FromName(boja[k]));
+                    block.Value = k * 10;
                     Blocks.Add(block);
                 }
-                k++;
+                k--;
             }
         }
 

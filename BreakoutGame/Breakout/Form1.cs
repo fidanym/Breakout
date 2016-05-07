@@ -163,6 +163,7 @@ namespace Breakout {
             else if (e.KeyCode == Keys.P)
             {
                 move = false;
+                timer1.Stop();
             }
             /*    if(e.KeyCode==Keys.Left)
                  {
@@ -173,7 +174,7 @@ namespace Breakout {
                  {
                      gameDoc.FBlock.Move("right"); 
                  }*/
-            if (e.KeyCode == Keys.Up)
+           /* if (e.KeyCode == Keys.Up)
             {
                 gameDoc.Ball.velocityY = -2;
                 gameDoc.Ball.velocityX = 0;
@@ -192,7 +193,7 @@ namespace Breakout {
             {
                 gameDoc.Ball.velocityY = 0;
                 gameDoc.Ball.velocityX = 2;
-            }
+            } */
 
 
         }
@@ -216,6 +217,11 @@ namespace Breakout {
                 timer1.Stop();
                 
             }
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

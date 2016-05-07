@@ -19,12 +19,12 @@ namespace Breakout {
             Corner = corner;
             Color = color;
             IsColided = false;
-            Level();
+            //Level();
            
             
         }
 
-        public void Level()
+        /*public void Level()
         {
             if (Color == Color.Red)
             {
@@ -36,7 +36,7 @@ namespace Breakout {
                 Value = 10;
                 
             }
-        }
+        }*/
 
         public void Draw(Graphics g) {
             Brush brush = new SolidBrush(Color);
