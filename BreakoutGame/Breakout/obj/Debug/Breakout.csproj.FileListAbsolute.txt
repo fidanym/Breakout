@@ -22,3 +22,15 @@ C:\Users\fidan\Desktop\Desktop\Breakout\obj\Debug\Breakout.HighScores.resources
 C:\Users\fidan\Desktop\Desktop\Breakout\obj\Debug\Breakout.Properties.Resources.resources
 C:\Users\fidan\Desktop\Desktop\Breakout\obj\Debug\Breakout.Start.resources
 C:\Users\fidan\Desktop\Desktop\Breakout\obj\Debug\Breakout.csproj.GenerateResource.Cache
+C:\Users\Stefan\Desktop\qwe\BreakoutGame\Breakout\bin\Debug\Breakout.exe.config
+C:\Users\Stefan\Desktop\qwe\BreakoutGame\Breakout\obj\Debug\Breakout.exe
+C:\Users\Stefan\Desktop\qwe\BreakoutGame\Breakout\obj\Debug\Breakout.pdb
+C:\Users\Stefan\Desktop\qwe\BreakoutGame\Breakout\bin\Debug\Breakout.exe
+C:\Users\Stefan\Desktop\qwe\BreakoutGame\Breakout\bin\Debug\Breakout.pdb
+C:\Users\Stefan\Desktop\qwe\BreakoutGame\Breakout\obj\Debug\Breakout.csprojResolveAssemblyReference.cache
+C:\Users\Stefan\Desktop\qwe\BreakoutGame\Breakout\obj\Debug\Breakout.Form1.resources
+C:\Users\Stefan\Desktop\qwe\BreakoutGame\Breakout\obj\Debug\Breakout.GameOverDialog.resources
+C:\Users\Stefan\Desktop\qwe\BreakoutGame\Breakout\obj\Debug\Breakout.HighScores.resources
+C:\Users\Stefan\Desktop\qwe\BreakoutGame\Breakout\obj\Debug\Breakout.Properties.Resources.resources
+C:\Users\Stefan\Desktop\qwe\BreakoutGame\Breakout\obj\Debug\Breakout.Start.resources
+C:\Users\Stefan\Desktop\qwe\BreakoutGame\Breakout\obj\Debug\Breakout.csproj.GenerateResource.Cache

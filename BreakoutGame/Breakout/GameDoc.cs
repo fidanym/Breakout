@@ -12,8 +12,14 @@ namespace Breakout {
         public FloorBlock FBlock { get; set; }
        // bool Remove { get; set; }
        public int Score { get; set; }
+        Dictionary<int, string> boja = new Dictionary<int, string>();
 
         public GameDoc() {
+            boja.Add(1, "MediumPurple");
+            boja.Add(2, "MidnightBlue");
+            boja.Add(3, "LimeGreen");
+            boja.Add(4, "Gold");
+            boja.Add(5, "Firebrick");
             Point ballCenter = new Point(400,500);
             Ball = new Ball(ballCenter, Color.Black);
             Point FloorPoint = new Point(400, 520);
@@ -24,22 +30,16 @@ namespace Breakout {
 
     
         public void AddBlocks() {
-            Color color = Color.Blue;
+            int k = 1;
             for(int i = 10; i <= 150; i += 35) {
                 for (int j = 10; j <= 750; j += 55) {
-                    if (i % 2 == 0)
-                    {
-                        color = Color.Red;
-                    }
-                    else
-                    {
-                        color = Color.Blue;
-                    }
+                  
 
                     Point p = new Point(j, i);
-                    Block block = new Block(p, color);
+                    Block block = new Block(p, Color.FromName(boja[k]));
                     Blocks.Add(block);
                 }
+                k++;
             }
         }
 
